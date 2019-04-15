@@ -7,7 +7,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.redirect("https://github.com/gruselhaus/api");
+  res.redirect("https://github.com/GruselhausOrganization/api");
 });
 
 module.exports = router;
