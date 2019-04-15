@@ -1,0 +1,75 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  test:
+    docker:
+      # specify the version you desire here
+      - image: starefossen/ruby-node:2-10
+
+    steps:
+      # Restoring source code cache
+      - restore_cache:
+          name: Restoring source code cache
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - source-v1-{{ .Branch }}-
+            - source-v1-
+
+      - checkout
+
+      #Saving source code cache
+      - save_cache:
+          name: Saving source code cache
+          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git"
+
+      #Restoring npm cache
+      - restore_cache:
+          name: Restoring npm cache
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - npm-v1-{{ .Branch }}-
+            - npm-v1-
+
+      - run:
+          name: Install node dependencies
+          command: npm install
+
+      #Saving npm cache
+      - save_cache:
+          name: Saving npm cache
+          paths:
+            - ./node_modules # location depends on npm version
+          key: npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
+      #Jest
+      - run:
+          name: Run jest
+          command: npm test
+  deploy:
+    docker:
+      # specify the version you desire here
+      - image: starefossen/ruby-node:2-10
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+
+workflows:
+  version: 2
+  test-deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master

@@ -1,0 +1,48 @@
+{
+  "author": {
+    "name": "Nico Finkernagel",
+    "email": "nico@gruselhaus.com",
+    "url": "https://www.gruselhaus.com"
+  },
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "jest --verbose --detectOpenHandles",
+    "start": "node ./src/server.js",
+    "lint": "./node_modules/.bin/eslint src/"
+  },
+  "keywords": [],
+  "license": "WTFPL",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gruselhaus/api.git"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.4.3",
+    "dotenv": "^7.0.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-jest": "^22.4.1",
+    "express": "^4.16.4",
+    "express-ga-middleware": "^0.1.6",
+    "express-rate-limit": "^3.4.0",
+    "firebase": "^5.9.4",
+    "is-reachable": "^3.0.0",
+    "jest": "^24.7.1",
+    "jest-runner-eslint": "^0.7.3",
+    "lodash": "^4.17.11",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "projects": [{
+        "displayName": "test"
+      },
+      {
+        "runner": "jest-runner-eslint",
+        "displayName": "lint",
+        "testMatch": [
+          "<rootDir>/src/**/*.js"
+        ]
+      }
+    ]
+  }
+}
