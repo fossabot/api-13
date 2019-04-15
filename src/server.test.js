@@ -5,11 +5,11 @@
 
 const {server, app, port} = require('./server');
 
-it('Typeof server must be function', done => {
+it('Typeof server has to be function', done => {
   expect(typeof app).toBe('function');
   done();
 })
-it('Typeof port must be a number', done => {
+it('Typeof port has to be a number', done => {
   expect(typeof port).toBe('number');
   done();
 })
