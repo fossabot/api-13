@@ -12,7 +12,7 @@
     "lint": "./node_modules/.bin/eslint src/"
   },
   "keywords": [],
-  "license": "WTFPL",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gruselhaus/api.git"
