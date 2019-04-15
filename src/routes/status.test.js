@@ -1,14 +1,14 @@
 /**
- * @name app.test.js
+ * @name status.test.js
  * @author Nico Finkernagel
  */
 
 require('dotenv').config({
   path: '../.env'
 });
-const app = require('./app');
+const app = require('../app');
 const CI_KEY = process.env.CI_KEY;
-const runTest = require('./helper/runTest');
+const runTest = require('../helper/runTest');
 
 describe('', () => {
   describe('Test with wrong API Key', () => {
@@ -51,14 +51,3 @@ describe('', () => {
     }]);
   });
 });
-describe("Path '/ping'", () => {
-  runTest([{
-    title: "Authentication & Request",
-    instance: app,
-    options: {
-      route: 'ping'
-    },
-    expect: 'status',
-    toBe: 200
-  }]);
-})
