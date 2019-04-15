@@ -1,5 +1,5 @@
 /**
- * @name github.js
+ * @name index.js
  * @author Nico Finkernagel
  */
 

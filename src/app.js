@@ -30,4 +30,7 @@ app.use('/github', github);
 const ping = require('./routes/ping');
 app.use('/ping', ping);
 
+const index = require('./routes/index');
+app.use('/', index);
+
 module.exports = app;
