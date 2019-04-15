@@ -1,1 +1,1 @@
-[![CircleCI](https://circleci.com/gh/GruselhausOrganization/api.svg?style=svg)](https://circleci.com/gh/GruselhausOrganization/api)
+[![CircleCI](https://circleci.com/gh/GruselhausOrganization/api.svg?style=svg)](https://circleci.com/gh/GruselhausOrganization/api) [![Greenkeeper badge](https://badges.greenkeeper.io/GruselhausOrganization/api.svg)](https://greenkeeper.io/)
