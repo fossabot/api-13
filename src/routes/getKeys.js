@@ -1,5 +1,5 @@
 /**
- * @name status.js
+ * @name getKeys.js
  * @author Nico Finkernagel
  */
 
