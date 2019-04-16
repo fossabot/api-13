@@ -2,10 +2,10 @@
 ## Current Endpoints
  * `/`: Currently redirecting to this repository
  * `/github`: Currently redirecting to this repository
- * `/status/:token/:host`
-   * `token`: Api Key stored in a firebase real time database for authentication
+ * `/status/:key/:host`
+   * `key`: API Key stored in a firebase real time database for authentication
    * `host`: The host for which the user wants the uptime status
- * `/ping`: the webservice will respond with `{
+ * `/ping`: this webservice will respond with `{
     status: 200,
     message: "Pong!"
   }` if this webservice is fully working
