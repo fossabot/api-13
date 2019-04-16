@@ -4,7 +4,7 @@
  * `/github`: Currently redirecting to this repository
  * `/status/:token/:host`
    * `token`: Api Key stored in a firebase real time database for authentication
-   * `host`: The host which the user wants the uptime status
+   * `host`: The host for which the user wants the uptime status
  * `/ping`: the webservice will respond with `{
     status: 200,
     message: "Pong!"
