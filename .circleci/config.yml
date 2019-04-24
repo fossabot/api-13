@@ -51,6 +51,12 @@ jobs:
       - run:
           name: Run jest
           command: npm test
+
+      #Build test
+      - run:
+          name: Build test
+          command: npm run build
+
   deploy:
     docker:
       # specify the version you desire here
