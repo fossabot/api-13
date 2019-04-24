@@ -2,6 +2,10 @@
 ## Current Endpoints
  * `/`: Currently redirecting to this repository
  * `/github`: Currently redirecting to this repository
+ * `/github/lastCommit/:username/:repo/:branch`: get the last commit based on the given parameters
+    *  `username`: GitHub Username
+    *  `repo`: Repository Name
+    *  `branch`: Brach Name
  * `/status/:key/:host`
    * `key`: API Key stored in a firebase real time database for authentication
    * `host`: The host for which the user wants the uptime status
