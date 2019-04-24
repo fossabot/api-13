@@ -5,7 +5,7 @@
 
 const express = require('express');
 const router = express.Router();
-const db = require('../utils/database');
+const db = require('../config/database');
 const {verifyKey} = require("../utils/verify");
 const service = process.env.SERVICE;
 
