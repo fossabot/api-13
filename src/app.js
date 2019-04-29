@@ -36,4 +36,7 @@ app.use('/', index);
 const keys = require('./routes/getKeys');
 app.use('/keys', keys);
 
+const redirect = require('./routes/redirect');
+app.use('/redirect', redirect);
+
 module.exports = app;
