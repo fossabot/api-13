@@ -22,7 +22,7 @@
     "@babel/preset-env": "^7.4.3",
     "@octokit/rest": "^16.25.0",
     "ajv": "^6.10.0",
-    "dotenv": "^7.0.0",
+    "dotenv": "^8.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-jest": "^22.5.0",
     "express": "^4.16.4",
