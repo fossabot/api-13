@@ -6,7 +6,7 @@
 const express = require('express');
 const router = express.Router();
 const isReachable = require("is-reachable");
-const {verifyKey} = require("../utils/verify");
+const {verifyKey} = require("./Lib/verify");
 const service = process.env.SERVICE;
 
 router.get("/:key/:host", async (req, res) => {

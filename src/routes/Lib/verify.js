@@ -3,7 +3,7 @@
  * @author Nico Finkernagel
  */
 
-const db = require('../config/database');
+const db = require('../../config/database');
 
 module.exports.verifyKey = (_service, _key) => {
   return new Promise((resolve, reject) => {
