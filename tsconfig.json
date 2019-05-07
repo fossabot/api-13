@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "es6",
+    "allowJs": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true
+  },
+  "compileOnSave": true,
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": ["src/**/*.test.ts"]
+}
