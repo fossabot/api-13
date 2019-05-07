@@ -1,7 +1,3 @@
-/**
- * @name server.js
- * @author Nico Finkernagel
- */
 import "./env";
 
 export const app = require("./app");

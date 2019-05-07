@@ -1,8 +1,3 @@
-/**
- * @name github.js
- * @author Nico Finkernagel
- */
-
 import * as express from "express";
 const router = express.Router();
 

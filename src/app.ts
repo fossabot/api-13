@@ -1,8 +1,3 @@
-/**
- * @name app.js
- * @author Nico Finkernagel
- */
-
 import "./env";
 
 import * as express from "express";

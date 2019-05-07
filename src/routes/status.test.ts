@@ -1,11 +1,8 @@
-/**
- * @name status.test.js
- * @author Nico Finkernagel
- */
 import "../env";
 import * as app from "../app";
+import { runTest } from "../helper/runTest";
+
 const CI_KEY = process.env.CI_KEY;
-const runTest = require("../helper/runTest");
 
 describe("", () => {
   describe("Test with wrong API Key", () => {

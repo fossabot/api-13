@@ -1,8 +1,3 @@
-/**
- * @name ping.js
- * @author Nico Finkernagel
- */
-
 import * as express from "express";
 const router = express.Router();
 

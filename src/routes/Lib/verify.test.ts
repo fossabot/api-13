@@ -1,8 +1,3 @@
-/**
- * @name user.test.js
- * @author Nico Finkernagel
- */
-
 import "../../env";
 import { verifyKey } from "./verify";
 

@@ -1,8 +1,3 @@
-/**
- * @name server.test.js
- * @author Nico Finkernagel
- */
-
 import { server, app, port } from "./server";
 
 it("Typeof server has to be function", done => {

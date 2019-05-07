@@ -1,11 +1,5 @@
-/**
- * @name ping.test.js
- * @author Nico Finkernagel
- */
-
 import * as app from "../app";
-const runTest = require("../helper/runTest");
-
+import { runTest } from "../helper/runTest";
 describe("", () => {
   describe("Testing Route '/ping'", () => {
     runTest([

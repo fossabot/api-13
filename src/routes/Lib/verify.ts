@@ -1,8 +1,3 @@
-/**
- * @name verify.js
- * @author Nico Finkernagel
- */
-
 import { db } from "../../config/database";
 
 export const verifyKey = (_service: string, _key: string) => {
