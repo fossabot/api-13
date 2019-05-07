@@ -6,10 +6,10 @@
  * @author Nico Finkernagel
  */
 
-const express = require('express');
+import * as express from "express";
 const router = express.Router();
 
-router.get("/", (req, res) => {
+export = router.get("/", (req, res) => {
   const url = req.query.url;
   if (url) {
     if (!new RegExp(/https:\/\/.+/).test(url) && !new RegExp(/http:\/\/.+/).test(url)) {
@@ -23,4 +23,3 @@ router.get("/", (req, res) => {
   }
 });
 
-module.exports = router;

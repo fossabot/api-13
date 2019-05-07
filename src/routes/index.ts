@@ -3,11 +3,9 @@
  * @author Nico Finkernagel
  */
 
-const express = require('express');
+import * as express from "express";
 const router = express.Router();
 
-router.get("/", (req, res) => {
+export = router.get("/", (req, res) => {
   res.redirect("https://github.com/GruselhausOrganization/api");
 });
-
-module.exports = router;
