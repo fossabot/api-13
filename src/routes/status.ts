@@ -11,6 +11,7 @@ const service = process.env.SERVICE;
 export = router.get("/:key/:host", async (req, res) => {
   const api_key = req.params.key;
   const host = req.params.host;
+  const sms = req.query.sms;
   if (!(await verifyKey(service, api_key))) {
     res.status(401).json({
       status: 401,
@@ -47,9 +48,11 @@ export = router.get("/:key/:host", async (req, res) => {
           message: "The Host is up!"
         });
       } else {
-        sendSMS(
-          `Hey 👋, \n \n it seems like that ${host} is down.\n \n Your Gruselhaus API 👻`
-        );
+        // if (sms && sms === "true") {
+        //   sendSMS(
+        //     `Hey 👋, \n \n it seems like that ${host} is down.\n \n Your Gruselhaus API 👻`
+        //   );
+        // }
         res.status(503).json({
           status: 503,
           message: "The Host is down!"
