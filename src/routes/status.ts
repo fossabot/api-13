@@ -4,6 +4,7 @@ import * as express from "express";
 const router = express.Router();
 
 import * as isReachable from "is-reachable";
+import { sendSMS } from "./Lib/sms";
 import { verifyKey } from "./Lib/verify";
 const service = process.env.SERVICE;
 
@@ -46,6 +47,9 @@ export = router.get("/:key/:host", async (req, res) => {
           message: "The Host is up!"
         });
       } else {
+        sendSMS(
+          `Hey 👋, \n \n it seems like that ${host} is down.\n \n Your Gruselhaus API 👻`
+        );
         res.status(503).json({
           status: 503,
           message: "The Host is down!"
