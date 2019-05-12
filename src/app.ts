@@ -18,19 +18,22 @@ const expressGa = require("express-ga-middleware");
 app.use(expressGa(process.env.TRACKING_ID));
 
 // Routes
-const status = require("./routes/status");
+import { status } from "./routes/status";
 app.use("/status", status);
 
-const github = require("./routes/github");
+import { github } from "./routes/github";
 app.use("/github", github);
 
-const ping = require("./routes/ping");
+import { ping } from "./routes/ping";
 app.use("/ping", ping);
 
-const index = require("./routes/index");
+import { index } from "./routes/index";
 app.use("/", index);
 
-const redirect = require("./routes/redirect");
+import { redirect } from "./routes/redirect";
 app.use("/redirect", redirect);
+
+import { mail_service } from "./routes/Mail/index";
+app.use("/mail", mail_service);
 
 export = app;

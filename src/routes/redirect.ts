@@ -4,7 +4,7 @@
 import * as express from "express";
 const router = express.Router();
 
-export = router.get("/", (req, res) => {
+export const redirect = router.get("/", (req, res) => {
   const url = req.query.url;
   if (url) {
     if (
