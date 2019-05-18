@@ -21,9 +21,6 @@ app.use(expressGa(process.env.TRACKING_ID));
 import { status } from "./routes/status";
 app.use("/status", status);
 
-import { github } from "./routes/github";
-app.use("/github", github);
-
 import { ping } from "./routes/ping";
 app.use("/ping", ping);
 
