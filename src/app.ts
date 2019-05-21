@@ -4,10 +4,10 @@ import * as express from "express";
 const app = express();
 
 // Rate Limiting
-import * as rateLimit from "express-rate-limit";
+const RateLimit = require("express-rate-limit");
 app.enable("trust proxy");
 app.use(
-  new rateLimit({
+  new RateLimit({
     windowMs: 15 * 60 * 1000,
     max: 10000
   })
