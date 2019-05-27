@@ -34,7 +34,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "express-ga-middleware": "^0.1.6",
-    "express-rate-limit": "4.0.0",
+    "express-rate-limit": "4.0.2",
     "firebase": "^6.0.4",
     "is-reachable": "^3.1.0",
     "lodash": "^4.17.11",
