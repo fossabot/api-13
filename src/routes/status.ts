@@ -7,7 +7,7 @@ import * as isReachable from "is-reachable";
 import { verifyKey } from "./Lib/verify";
 const service = process.env.SERVICE;
 
-export const status = router.get("/:key/:host", async (req, res) => {
+export const statusRouter = router.get("/:key/:host", async (req, res) => {
   const api_key = req.params.key;
   const host = req.params.host;
   if (!(await verifyKey(service, api_key))) {
