@@ -1,3 +1,9 @@
+/* Copyright (C) Nico Finkernagel - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Nico Finkernagel <nico@gruselhaus.com>, May 2019
+ */
+
 import { db } from "../../config/database";
 
 export const verifyKey = (_service: string, _key: string) => {
