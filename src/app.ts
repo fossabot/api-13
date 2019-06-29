@@ -42,4 +42,8 @@ app.use("/", indexRouter);
 import { redirectRouter } from "./routes/redirect";
 app.use("/redirect", redirectRouter);
 
+// 404 route that redirects to https://gruselhaus.com/404.html
+import { _404Router } from "./routes/404";
+app.use("*", _404Router);
+
 export = app;
