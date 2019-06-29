@@ -1,7 +1,13 @@
-/* Copyright (C) Nico Finkernagel - All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- * Written by Nico Finkernagel <nico@gruselhaus.com>, May 2019
+/*
+ * File: app.ts
+ * Project: gruselhaus-api
+ * File Created: Tuesday, 21st May 2019 4:50:29 pm
+ * Author: Nico Finkernagel <nico@gruselhaus.com>
+ * -----
+ * Last Modified: Saturday, 29th June 2019 11:59:50 am
+ * Modified By: Nico Finkernagel <nico@gruselhaus.com>
+ * -----
+ * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
 
 import "./env";
@@ -10,7 +16,7 @@ import * as express from "express";
 const app = express();
 
 // Rate Limiting
-const RateLimit = require("express-rate-limit");
+import * as RateLimit from "express-rate-limit";
 app.enable("trust proxy");
 app.use(
   new RateLimit({
