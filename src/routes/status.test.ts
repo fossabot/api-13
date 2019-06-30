@@ -14,7 +14,7 @@ import "../env";
 import * as app from "../app";
 import { runTest } from "../helper/runTest";
 
-const CI_KEY = process.env.CI_KEY;
+const API_KEY = process.env.API_KEY;
 
 describe("", () => {
   describe("Test with wrong API Key", () => {
@@ -39,7 +39,7 @@ describe("", () => {
         instance: app,
         options: {
           route: "status",
-          key: CI_KEY,
+          key: API_KEY,
           host: "google.com"
         },
         expect: "status",
@@ -54,7 +54,7 @@ describe("", () => {
         instance: app,
         options: {
           route: "status",
-          key: CI_KEY,
+          key: API_KEY,
           host: "notarealhost"
         },
         expect: "status",

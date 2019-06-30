@@ -14,10 +14,10 @@ import "../../env";
 import { verifyKey } from "./verify";
 
 it("Testing with CI_KEY", async () => {
-  const expected = await verifyKey(process.env.SERVICE, process.env.CI_KEY);
+  const expected = await verifyKey(process.env.API_KEY);
   expect(expected).toBe(true);
 });
 it("Testing with key=''", async () => {
-  const expected = await verifyKey(process.env.SERVICE, "");
+  const expected = await verifyKey("");
   expect(expected).toBe(false);
 });

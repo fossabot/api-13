@@ -12,15 +12,15 @@
 
 import { db } from "../../config/database";
 
-export const verifyKey = (_service: string, _key: string) => {
+export const verifyKey = (_key: string) => {
   return new Promise((resolve, reject) => {
-    const ref = db.ref(_service + "/" + _key);
+    const ref = db.ref(`/keys/${_key}`);
     ref.on(
       "value",
       snapshot => {
         const resp = snapshot.val();
         if (resp) {
-          if (resp.Activ === true) {
+          if (resp.active === true) {
             resolve(true);
           } else {
             resolve(false);
