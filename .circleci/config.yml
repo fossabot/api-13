@@ -27,25 +27,9 @@ jobs:
           paths:
             - ".git"
 
-      #Restoring npm cache
-      - restore_cache:
-          name: Restoring npm cache
-          keys:
-            # when lock file changes, use increasingly general patterns to restore cache
-            - npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-            - npm-v1-{{ .Branch }}-
-            - npm-v1-
-
       - run:
           name: Install node dependencies
           command: npm install
-
-      #Saving npm cache
-      - save_cache:
-          name: Saving npm cache
-          paths:
-            - ./node_modules # location depends on npm version
-          key: npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
 
       #Jest
       - run:
