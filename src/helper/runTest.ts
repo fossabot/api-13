@@ -10,7 +10,7 @@
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
 
-import * as _ from "lodash";
+import _ from "lodash";
 import * as request from "supertest";
 import { createURL } from "./createURL";
 

@@ -2,11 +2,11 @@
   "compilerOptions": {
     "outDir": "dist",
     "module": "commonjs",
-    "target": "es3",
+    "target": "es6",
     "allowJs": true,
     "noImplicitAny": true,
     "removeComments": false,
-    "preserveConstEnums": true,
+    "preserveConstEnums": true
   },
   "compileOnSave": true,
   "include": [
