@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rm -rf ./dist;tsc",
     "test": "yarn run build;jest",
-    "start": "yarn run build;node ./dist/server.js"
+    "start": "node ./dist/server.js"
   },
   "keywords": [
     "API",
