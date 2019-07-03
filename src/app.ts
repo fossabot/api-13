@@ -30,20 +30,23 @@ const expressGa = require("express-ga-middleware");
 app.use(expressGa(process.env.TRACKING_ID));
 
 // Routes
-import { statusRouter } from "./routes/status";
+import { statusRouter } from "./routes/status/status";
 app.use("/status", statusRouter);
 
-import { pingRouter } from "./routes/ping";
+import { pingRouter } from "./routes/ping/ping";
 app.use("/ping", pingRouter);
 
 import { indexRouter } from "./routes/index";
 app.use("/", indexRouter);
 
-import { redirectRouter } from "./routes/redirect";
+import { redirectRouter } from "./routes/redirect/redirect";
 app.use("/redirect", redirectRouter);
 
+import { mailRouter } from "./routes/mail/mail";
+app.use("/mail", mailRouter);
+
 // 404 route that redirects to https://gruselhaus.com/404.html
-import { _404Router } from "./routes/404";
+import { _404Router } from "./routes/404/404";
 app.use("*", _404Router);
 
 export = app;

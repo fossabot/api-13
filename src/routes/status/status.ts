@@ -10,13 +10,13 @@
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
 
-import "../env";
+import "../../env";
 
 import * as express from "express";
 const router = express.Router();
 
 import * as isReachable from "is-reachable";
-import { verifyKey } from "./Lib/verify";
+import { verifyKey } from "../Lib/verify";
 
 export const statusRouter = router.get("/:key/:host", async (req, res) => {
   const api_key = req.params.key;
