@@ -17,7 +17,6 @@ const router = express.Router();
 
 import * as isReachable from "is-reachable";
 import { verifyKey } from "./Lib/verify";
-import { saveLog } from "./Lib/statusLog";
 
 export const statusRouter = router.get("/:key/:host", async (req, res) => {
   const api_key = req.params.key;
@@ -36,7 +35,6 @@ export const statusRouter = router.get("/:key/:host", async (req, res) => {
         }
       ]
     });
-    saveLog(host, new Date(), 401);
   } else {
     if (!host) {
       res.status(404).json({
@@ -52,20 +50,17 @@ export const statusRouter = router.get("/:key/:host", async (req, res) => {
           }
         ]
       });
-      saveLog(host, new Date(), 404);
     } else {
       if (await isReachable(host)) {
         res.status(200).json({
           status: 200,
           message: "The Host is up!"
         });
-        saveLog(host, new Date(), 200);
       } else {
         res.status(503).json({
           status: 503,
           message: "The Host is down!"
         });
-        saveLog(host, new Date(), 503);
       }
     }
   }
