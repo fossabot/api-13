@@ -10,8 +10,8 @@
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
 
-import * as app from "../app";
-import { runTest } from "../helper/runTest";
+import * as app from "../../app";
+import { runTest } from "../../helper/runTest";
 describe("", () => {
   describe("Testing Route '/ping'", () => {
     runTest([
