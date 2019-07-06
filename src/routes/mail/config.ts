@@ -30,12 +30,7 @@ interface config {
 
 export class Mail {
   private sucess: string;
-  constructor(
-    public from?: string,
-    public to?: string,
-    public subject?: string,
-    public message?: string
-  ) {
+  constructor(public from?: string, public to?: string, public subject?: string, public message?: string) {
     this.sucess = "Email erfolgreich versandt.";
   }
 

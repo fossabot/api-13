@@ -15,6 +15,4 @@ import "./env";
 export const app = require("./app");
 export const port = process.env.PORT || 3000;
 
-export const server = app.listen(port, () =>
-  console.log(`Server started on port: ${port}`)
-);
+export const server = app.listen(port, () => console.log(`Server started on port: ${port}`));
