@@ -32,9 +32,10 @@ export const mailRouter = router.post("/", async (req, res) => {
       return;
     }
     try {
-      new Mail(from, to, subject, message).sendMail();
-    } catch {
-      res.status(503).send("Internal Server Error!");
+      await new Mail(from, to, subject, message).sendMail();
+    } catch (err) {
+      res.status(err.responseCode).send(err.response);
+      return;
     }
     res.status(200).send("Sucess");
   }
