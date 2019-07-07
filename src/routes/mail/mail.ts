@@ -9,6 +9,7 @@
  * -----
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
+
 import { verifyKey } from "../Lib/verify";
 import { Mail } from "./config";
 import * as bodyParser from "body-parser";
@@ -32,11 +33,12 @@ export const mailRouter = router.post("/", async (req, res) => {
       return;
     }
     try {
-      await new Mail(from, to, subject, message).sendMail();
+      const resp = await new Mail(from, to, subject, message).sendMail();
+      res.status(200).send(resp);
+      return;
     } catch (err) {
       res.status(err.responseCode).send(err.response);
       return;
     }
-    res.status(200).send("Sucess");
   }
 });
