@@ -45,6 +45,9 @@ app.use("/redirect", redirectRouter);
 import { mailRouter } from "./routes/mail/mail";
 app.use("/mail", mailRouter);
 
+import { userRouter } from "./routes/user/user";
+app.use("/user", userRouter);
+
 // 404 route that redirects to https://gruselhaus.com/404.html
 import { _404Router } from "./routes/404/404";
 app.use("*", _404Router);

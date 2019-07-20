@@ -35,3 +35,27 @@ export const verifyKey = (_key: string) => {
     );
   });
 };
+
+export const verifyUser = (_username: string, _password: string) => {
+  return new Promise((resolve, reject) => {
+    const ref = db.ref(`/users/${_username}`);
+    ref.on(
+      "value",
+      snapshot => {
+        const resp = snapshot.val();
+        if (resp) {
+          if (resp.active === true && resp.password == _password) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        } else {
+          resolve(false);
+        }
+      },
+      (error: string) => {
+        reject(new Error(`User Credentials Checking Failed! ${error}`));
+      }
+    );
+  });
+};
