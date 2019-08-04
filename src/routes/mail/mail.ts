@@ -47,6 +47,7 @@ router.get("/", (_, res) => {
   res.json({
     message: "Use post to send an email.",
     "example payload": {
+      key: "Gruselhaus API Key",
       from: "Email Adress the message should be send from.",
       to: "Email Adress the message should be send to.",
       subject: "The subject of the mail.",
