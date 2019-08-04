@@ -19,7 +19,7 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-export const mailRouter = router.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
   const from = req.body.from;
   const to = req.body.to;
   const subject = req.body.subject;
@@ -42,3 +42,17 @@ export const mailRouter = router.post("/", async (req, res) => {
     }
   }
 });
+
+router.get("/", (_, res) => {
+  res.json({
+    message: "Use post to send an email.",
+    "example payload": {
+      from: "Email Adress the message should be send from.",
+      to: "Email Adress the message should be send to.",
+      subject: "The subject of the mail.",
+      message: "The body of the mail (optional: html formatted)."
+    }
+  });
+});
+
+export const mailRouter = router;

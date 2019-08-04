@@ -10,9 +10,9 @@
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
 
-import "../../env";
-import * as app from "../../app";
-import { runTest } from "../../helper/runTest";
+import "../../../env";
+import * as app from "../../../app";
+import { runTest } from "../../../helper/runTest";
 
 const API_KEY = process.env.API_KEY;
 
