@@ -1,4 +1,0 @@
-{
-  "watch": ["src/**/*.ts"],
-  "exec": "yarn run build-start"
-}

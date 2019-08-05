@@ -45,6 +45,9 @@ app.use("/redirect", redirectRouter);
 import { mailRouter } from "./routes/mail/mail";
 app.use("/mail", mailRouter);
 
+import { smsRouter } from "./routes/sms/sms";
+app.use("/sms", smsRouter);
+
 import { userRouter } from "./routes/user/user";
 app.use("/user", userRouter);
 
