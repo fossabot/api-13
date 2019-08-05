@@ -20,9 +20,9 @@ const router = express.Router();
  * @apiSuccessExample {string} Success-Response:
  *     HTTP/1.1 302 Found
  *
- *     Redirecting to https://github.com/GruselhausOrganization/api
+ *     Redirecting to /documentation
  */
 
 export const indexRouter = router.get("/", (_, res: express.Response) => {
-  res.redirect("https://github.com/GruselhausOrganization/api");
+  res.redirect("/documentation");
 });

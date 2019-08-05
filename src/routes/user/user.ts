@@ -16,7 +16,7 @@ const router = express.Router();
 import { verifyUser } from "../Lib/verify";
 
 /**
- * @api {get} /user Verify user credentials in databse
+ * @api {get} /user/verify Verify user credentials in databse
  * @apiGroup User
  *
  * @apiParam {String} username Username.
@@ -27,7 +27,7 @@ import { verifyUser } from "../Lib/verify";
  * @apiSuccess {Boolean} auth Sucess.
  */
 
-export const userRouter = router.get("/", async (req: express.Request, res: express.Response) => {
+export const userRouter = router.get("/verify", async (req: express.Request, res: express.Response) => {
   const username = req.query.username;
   const password = req.query.password;
   if (!username || !password) {

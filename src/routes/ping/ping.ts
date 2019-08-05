@@ -25,7 +25,7 @@ const router = express.Router();
  *     }
  */
 
-export const pingRouter = router.get("/", (req, res) => {
+export const pingRouter = router.get("/", (req: express.Request, res: express.Response) => {
   res.status(200).json({
     status: 200,
     message: "Pong!"
