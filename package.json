@@ -10,9 +10,13 @@
   "scripts": {
     "test": "yarn run build;jest",
     "dev": "nodemon",
-    "production": "yarn run docs;tsc;node ./dist/server.js",
+    "build": "rm -rf .dist/;tsc;yarn run docs",
+    "start": "./dist/server.js",
     "docs-build-start": "yarn run docs;rm -rf ./dist;tsc;node ./dist/server.js",
     "docs": "apidoc -i src/ -o public/documentation/"
+  },
+  "engines": {
+    "yarn": "1.x"
   },
   "keywords": [
     "API",
