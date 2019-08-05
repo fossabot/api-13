@@ -9,7 +9,6 @@
   "main": "dist/server.js",
   "scripts": {
     "test": "yarn run build;jest",
-    "build": "rm -rf ./dist;tsc",
     "dev": "nodemon",
     "production": "yarn run docs;tsc;node ./dist/server.js",
     "docs-build-start": "yarn run docs;rm -rf ./dist;tsc;node ./dist/server.js",
