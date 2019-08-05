@@ -13,6 +13,18 @@
 import * as express from "express";
 const router = express.Router();
 
+/**
+ * @api {get} /ping Sample Uptime Request
+ * @apiGroup Ping
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "status": 200,
+ *       "message": "Pong!"
+ *     }
+ */
+
 export const pingRouter = router.get("/", (req, res) => {
   res.status(200).json({
     status: 200,

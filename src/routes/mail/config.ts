@@ -32,7 +32,7 @@ export class Mail {
   private sucess: string;
   private fallback: boolean = false;
   constructor(public from?: string, public to?: string, public subject?: string, public message?: string) {
-    this.sucess = "Email erfolgreich versandt.";
+    this.sucess = "Message sucessfully sent.";
   }
 
   async sendMail() {

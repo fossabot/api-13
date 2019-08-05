@@ -18,7 +18,15 @@ const router = express.Router();
 import * as isReachable from "is-reachable";
 import { verifyKey } from "../Lib/verify";
 
-export const statusRouter = router.get("/:key/:host", async (req, res) => {
+/**
+ * @api {get} /status/:key/:host Request Website reachability
+ * @apiGroup Status
+ *
+ * @apiParam {String} key Gruselhaus API Key.
+ * @apiParam {String} host The host to check for.
+ */
+
+export const statusRouter = router.get("/:key/:host", async (req: express.Request, res: express.Response) => {
   const api_key = req.params.key;
   const host = req.params.host;
   if (!(await verifyKey(api_key))) {

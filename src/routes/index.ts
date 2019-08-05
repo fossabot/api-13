@@ -13,6 +13,16 @@
 import * as express from "express";
 const router = express.Router();
 
-export const indexRouter = router.get("/", (req, res) => {
+/**
+ * @api {get} / Index
+ * @apiGroup Redirects
+ *
+ * @apiSuccessExample {string} Success-Response:
+ *     HTTP/1.1 302 Found
+ *
+ *     Redirecting to https://github.com/GruselhausOrganization/api
+ */
+
+export const indexRouter = router.get("/", (_, res: express.Response) => {
   res.redirect("https://github.com/GruselhausOrganization/api");
 });

@@ -19,7 +19,55 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-router.post("/", async (req, res) => {
+/**
+ * @api {get} /mail Mail Instructions
+ * @apiGroup Mail
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "message": "Use post to send an email.",
+ *       "example payload":
+ *         {
+ *           "key": "Gruselhaus API Key",
+ *           "from": "Email Adress the message should be send from.",
+ *           "to": "Email Adress the message should be send to.",
+ *           "subject": "The subject of the mail.",
+ *           "message": "The body of the mail (optional: html formatted)."
+ *         }
+ *     }
+ */
+
+router.get("/", (_: express.Request, res: express.Response) => {
+  res.json({
+    message: "Use post to send an email.",
+    "example payload": {
+      key: "Gruselhaus API Key",
+      from: "Email Adress the message should be send from.",
+      to: "Email Adress the message should be send to.",
+      subject: "The subject of the mail.",
+      message: "The body of the mail (optional: html formatted)."
+    }
+  });
+});
+
+/**
+ * @api {post} /mail/create Send an E-Mail
+ * @apiGroup Mail
+ *
+ * @apiParam {String} key Gruselhaus API Key.
+ * @apiParam {String} from Email Adress the message should be send from.
+ * @apiParam {String} to Email Adress the message should be send to.
+ * @apiParam {String} subject The subject of the mail.
+ * @apiParam {String} message The body of the mail (optional: html formatted).
+ *
+ * @apiSuccessExample {text} Success-Response:
+ *     HTTP/1.1 200 OK
+ *
+ *     Message sucessfully sent.
+ */
+
+router.post("/create", async (req: express.Request, res: express.Response) => {
   const from = req.body.from;
   const to = req.body.to;
   const subject = req.body.subject;
@@ -41,19 +89,6 @@ router.post("/", async (req, res) => {
       return;
     }
   }
-});
-
-router.get("/", (_, res) => {
-  res.json({
-    message: "Use post to send an email.",
-    "example payload": {
-      key: "Gruselhaus API Key",
-      from: "Email Adress the message should be send from.",
-      to: "Email Adress the message should be send to.",
-      subject: "The subject of the mail.",
-      message: "The body of the mail (optional: html formatted)."
-    }
-  });
 });
 
 export const mailRouter = router;

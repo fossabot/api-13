@@ -8,17 +8,22 @@
   "description": "Official Gruselhaus API",
   "main": "dist/server.js",
   "scripts": {
-    "build": "rm -rf ./dist;tsc",
-    "start": "node ./dist/server.js",
-    "build-start": "rm -rf ./dist;tsc;node ./dist/server.js",
     "test": "yarn run build;jest",
-    "dev": "nodemon"
+    "build": "rm -rf ./dist;tsc",
+    "dev": "nodemon",
+    "production": "yarn run docs;tsc;node ./dist/server.js",
+    "docs-build-start": "yarn run docs;rm -rf ./dist;tsc;node ./dist/server.js",
+    "docs": "apidoc -i src/ -o public/documentation/"
   },
   "keywords": [
     "API",
     "TypeScript",
     "Node.js",
-    "Monitoring"
+    "Monitoring",
+    "Express",
+    "Jest",
+    "Textbelt",
+    "Nodemailer"
   ],
   "license": "MIT",
   "repository": {
@@ -51,7 +56,7 @@
     "@types/request": "^2.48.1",
     "@types/request-promise": "^4.1.44",
     "@types/supertest": "^2.0.7",
-    "@types/uuid": "^3.4.4",
+    "apidoc": "^0.17.7",
     "jest": "^24.8.0",
     "nodemon": "^1.19.1",
     "supertest": "^4.0.2",
@@ -67,6 +72,6 @@
       "dist/*"
     ],
     "ext": "ts",
-    "exec": "yarn run build-start"
+    "exec": "yarn run docs-build-start"
   }
 }

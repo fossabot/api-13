@@ -15,7 +15,7 @@ import "./env";
 import * as express from "express";
 const app = express();
 
-// Rate Limiting
+// Rate Limiting Middleware
 import * as RateLimit from "express-rate-limit";
 app.enable("trust proxy");
 app.use(
@@ -25,7 +25,10 @@ app.use(
   })
 );
 
-// GA
+// Serve Static Content
+app.use(express.static("public"));
+
+// Google Analytics Middleware
 const expressGa = require("express-ga-middleware");
 app.use(expressGa(process.env.TRACKING_ID));
 
@@ -39,9 +42,6 @@ app.use("/ping", pingRouter);
 import { indexRouter } from "./routes/index";
 app.use("/", indexRouter);
 
-import { redirectRouter } from "./routes/redirect/redirect";
-app.use("/redirect", redirectRouter);
-
 import { mailRouter } from "./routes/mail/mail";
 app.use("/mail", mailRouter);
 
@@ -51,7 +51,6 @@ app.use("/sms", smsRouter);
 import { userRouter } from "./routes/user/user";
 app.use("/user", userRouter);
 
-// 404 route that redirects to https://gruselhaus.com/404.html
 import { _404Router } from "./routes/404/404";
 app.use("*", _404Router);
 

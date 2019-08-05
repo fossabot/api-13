@@ -1,0 +1,9 @@
+{
+  "name": "Gruselhaus API",
+  "description": "Documentation of the Gruselhaus API",
+  "title": "Gruselhaus API Documentation",
+  "url": "https://api.gruselhaus.com",
+  "template": {
+    "withCompare": false
+  }
+}

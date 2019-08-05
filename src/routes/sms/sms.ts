@@ -25,7 +25,58 @@ router.use(bodyParser.json());
 const { errorHandler } = require("./errorHandler");
 router.use(errorHandler);
 
-router.post("/", async (req, res) => {
+/**
+ * @api {get} /sms SMS Instructions
+ * @apiGroup SMS
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "message": "Use post to send a sms.",
+ *       "example payload":
+ *         {
+ *           "key": "Gruselhaus API Key",
+ *           "phone": "YOUR PHONE NUMBER",
+ *           "message": "MESSAGE CONTENT"
+ *         }
+ *     }
+ */
+
+router.get("/", (_: express.Request, res: express.Response) => {
+  res.json({
+    message: "Use post to send a sms.",
+    "example payload": {
+      key: "Gruselhaus API Key",
+      phone: "YOUR PHONE NUMBER",
+      message: "MESSAGE CONTENT"
+    }
+  });
+});
+
+/**
+ * @api {post} /sms/create Send an SMS
+ * @apiGroup SMS
+ *
+ * @apiParam {String} key Gruselhaus API Key.
+ * @apiParam {String} phone Phone Number.
+ * @apiParam {String} message SMS Content.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "success": true,
+ *       "textId": "12345678",
+ *       "quotaRemaining": 0
+ *     }
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1
+ *     {
+ *       "success": false,
+ *       "error": "Lorem ipsum..."
+ *     }
+ */
+
+router.post("/create", async (req: express.Request, res: express.Response) => {
   const _phone = req.body.phone;
   const _message = req.body.message;
 
@@ -53,15 +104,65 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", (_, res) => {
-  res.json({
-    message: "Use post to send a sms.",
-    "example payload": {
-      key: "Gruselhaus API Key",
-      phone: "YOUR PHONE NUMBER",
-      message: "MESSAGE CONTENT"
+/**
+ * @api {get} /sms/quota Check remaining quota
+ * @apiGroup SMS
+ *
+ * @apiParam {String} key Gruselhaus API Key.
+ */
+
+router.get("/quota", async (req: express.Request, res: express.Response) => {
+  if (!(await verifyKey(req.body.key))) {
+    res.status(401).send("Forbidden: Invalid API Key!");
+  } else {
+    try {
+      const resp = await request.get(`https://textbelt.com/quota/${process.env.TEXTBELT_KEY}`);
+      res.send(resp);
+      return;
+    } catch (err) {
+      res.status(err.responseCode).send(err.response);
+      return;
     }
-  });
+  }
+});
+
+/**
+ * @api {get} /sms/status/:textId Look up text delivery status
+ * @apiGroup SMS
+ *
+ * @apiParam {String} key Gruselhaus API Key.
+ * @apiParam {Number} textId Unique text Id.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "status": "DELIVERED"
+ *     }
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "status": "FAILED"
+ *     }
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "status": "UNKNOWN"
+ *     }
+ */
+
+router.get("/status/:textId", async (req: express.Request, res: express.Response) => {
+  if (!(await verifyKey(req.body.key))) {
+    res.status(401).send("Forbidden: Invalid API Key!");
+  } else {
+    try {
+      const resp = await request.get(`https://textbelt.com/status/${req.params.textId}`);
+      res.send(resp);
+      return;
+    } catch (err) {
+      res.status(err.responseCode).send(err.response);
+      return;
+    }
+  }
 });
 
 export const smsRouter = router;

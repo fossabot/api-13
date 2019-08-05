@@ -14,6 +14,16 @@ import * as express from "express";
 
 const router = express.Router();
 
-export const _404Router = router.get("/", (req, res) => {
+/**
+ * @api {get} /404 404 Site
+ * @apiGroup Redirects
+ *
+ * @apiSuccessExample {string} Success-Response:
+ *     HTTP/1.1 302 Found
+ *
+ *     Redirecting to https://www.gruselhaus.com/404.html
+ */
+
+export const _404Router = router.get("/", (_: express.Request, res: express.Response) => {
   res.redirect("https://www.gruselhaus.com/404.html");
 });

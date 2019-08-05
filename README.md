@@ -8,6 +8,12 @@ The Gruselhaus API provides information to several web services including a full
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+## Documentation
+
+Please have a look at https://api.gruselhaus.com/documentation
+
+----
+
 ### Prerequisites
 You need to install this software to meet the prerequisites.
 
