@@ -21,6 +21,13 @@ import { verifyKey } from "../Lib/verify";
 import { resultRouter } from "./result/result";
 router.use("/result", resultRouter);
 
+interface PostRequestParams extends express.Request {
+  params: {
+    key: string;
+    host: string;
+  };
+}
+
 /**
  * @api {get} /status/:key/:host Request Website reachability
  * @apiGroup Status
@@ -29,7 +36,7 @@ router.use("/result", resultRouter);
  * @apiParam {String} host The host to check for.
  */
 
-export const statusRouter = router.get("/:key/:host", async (req: express.Request, res: express.Response) => {
+export const statusRouter = router.get("/:key/:host", async (req: PostRequestParams, res: express.Response) => {
   const api_key = req.params.key;
   const host = req.params.host;
   if (!(await verifyKey(api_key))) {

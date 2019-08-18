@@ -147,7 +147,13 @@ router.get("/quota", async (req: express.Request, res: express.Response) => {
  *     }
  */
 
-router.get("/status/:textId", async (req: express.Request, res: express.Response) => {
+interface PostRequestParams extends express.Request {
+  params: {
+    textId: string;
+  };
+}
+
+router.get("/status/:textId", async (req: PostRequestParams, res: express.Response) => {
   if (!(await verifyKey(req.body.key))) {
     res.status(401).send("Forbidden: Invalid API Key!");
   } else {
