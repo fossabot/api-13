@@ -22,9 +22,6 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-const { errorHandler } = require("./errorHandler");
-router.use(errorHandler);
-
 /**
  * @api {get} /sms SMS Instructions
  * @apiGroup SMS
