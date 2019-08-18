@@ -23,7 +23,7 @@ router.use(bodyParser.json());
 import { verifyKey } from "../../Lib/verify";
 
 /**
- * @api {get} /status/result Process result from status monitoring
+ * @api {post} /status/result Process result from status monitoring
  * @apiGroup Status
  *
  * @apiParam {String} key Gruselhaus API Key.
