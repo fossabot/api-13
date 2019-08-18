@@ -18,6 +18,9 @@ const router = express.Router();
 import * as isReachable from "is-reachable";
 import { verifyKey } from "../Lib/verify";
 
+import { resultRouter } from "./result/result";
+router.use("/result", resultRouter);
+
 /**
  * @api {get} /status/:key/:host Request Website reachability
  * @apiGroup Status
