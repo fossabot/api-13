@@ -1,12 +1,12 @@
 {
+  "name": "gruselhaus-api",
+  "description": "Official Gruselhaus API",
+  "main": "dist/server.js",
   "author": {
     "name": "Nico Finkernagel",
     "email": "nico@gruselhaus.com",
     "url": "https://www.gruselhaus.com"
   },
-  "name": "gruselhaus-api",
-  "description": "Official Gruselhaus API",
-  "main": "dist/server.js",
   "scripts": {
     "test": "yarn run build;jest",
     "dev": "nodemon",
