@@ -59,7 +59,6 @@ $ yarn run build-start
 ## Built With
 
 * [Node.js](https://nodejs.org/) - Runtime Framework
-* [Firebase](http://firebase.google.com) - Database
 * [Heroku](https://heroku.com) - Hosting
 
 ## Contributing
