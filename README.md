@@ -59,6 +59,9 @@ $ yarn run build-start
 
 * [Node.js](https://nodejs.org/) - Runtime Framework
 * [Heroku](https://heroku.com) - Hosting
+* [Jest](https://jestjs.io) - Unit Testing
+* [nodemailer](https://nodemailer.com) - Mail Framework
+* [Textbelt](https://textbelt.com) - SMS Api
 
 ## Contributing
 
