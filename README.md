@@ -19,7 +19,6 @@ You need to install this software to meet the prerequisites.
 
 * node.js
 * npm or yarn
-* A firebase real time database (http://firebase.google.com)
 * An email provider && your SMTP Auth Credentials
 
 ### Installing
