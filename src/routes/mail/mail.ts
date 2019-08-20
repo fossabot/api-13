@@ -1,16 +1,16 @@
 /*
  * File: mail.ts
  * Project: gruselhaus-api
- * File Created: Wednesday, 3rd July 2019 7:00:47 pm
+ * File Created: Tuesday, 9th July 2019 8:48:38 pm
  * Author: Nico Finkernagel <nico@gruselhaus.com>
  * -----
- * Last Modified: Wednesday, 3rd July 2019 7:03:31 pm
- * Modified By: Nico Finkernagel <nico@gruselhaus.com>
+ * Last Modified: Tuesday, 20th August 2019 9:15:17 pm
+ * Modified By: Julia Konstanz <julia@gruselhaus.com>
  * -----
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
 
-import { verifyKey } from "../Lib/verify";
+import { verifyUser } from "../Lib/verify";
 import { Mail } from "./config";
 import * as bodyParser from "body-parser";
 import * as express from "express";
@@ -73,7 +73,7 @@ router.post("/create", async (req: express.Request, res: express.Response) => {
   const subject = req.body.subject;
   const message = req.body.message;
 
-  if (!(await verifyKey(req.body.key))) {
+  if (!(await verifyUser(req.body.key))) {
     res.status(401).send("Forbidden: Invalid API Key!");
   } else {
     if (!from || !to || !subject || !message) {

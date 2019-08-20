@@ -36,10 +36,10 @@
     "express": "^4.17.1",
     "express-ga-middleware": "^0.1.6",
     "express-rate-limit": "^5.0.0",
-    "firebase": "^6.0.4",
     "is-reachable": "^3.1.0",
     "lodash": "^4.17.13",
     "nodemailer": "^6.2.1",
+    "pg": "^7.12.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
   },

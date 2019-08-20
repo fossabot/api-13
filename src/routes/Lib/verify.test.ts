@@ -5,19 +5,19 @@
  * Author: Nico Finkernagel <nico@gruselhaus.com>
  * -----
  * Last Modified: Saturday, 29th June 2019 11:59:05 am
- * Modified By: Nico Finkernagel <nico@gruselhaus.com>
+ * Modified By: Julia Konstanz <julia@gruselhaus.com>
  * -----
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
 
 import "../../env";
-import { verifyKey } from "./verify";
+import { verifyUser } from "./verify";
 
 it("Testing with CI_KEY", async () => {
-  const expected = await verifyKey(process.env.API_KEY);
+  const expected = await verifyUser(process.env.API_KEY);
   expect(expected).toBe(true);
 });
 it("Testing with key=''", async () => {
-  const expected = await verifyKey("");
+  const expected = await verifyUser("");
   expect(expected).toBe(false);
 });

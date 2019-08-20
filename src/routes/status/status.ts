@@ -1,11 +1,11 @@
 /*
  * File: status.ts
  * Project: gruselhaus-api
- * File Created: Tuesday, 7th May 2019 11:49:47 pm
+ * File Created: Saturday, 6th July 2019 2:57:34 pm
  * Author: Nico Finkernagel <nico@gruselhaus.com>
  * -----
- * Last Modified: Saturday, 29th June 2019 11:59:44 am
- * Modified By: Nico Finkernagel <nico@gruselhaus.com>
+ * Last Modified: Tuesday, 20th August 2019 9:15:50 pm
+ * Modified By: Julia Konstanz <julia@gruselhaus.com>
  * -----
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
@@ -16,7 +16,7 @@ import * as express from "express";
 const router = express.Router();
 
 import * as isReachable from "is-reachable";
-import { verifyKey } from "../Lib/verify";
+import { verifyUser } from "../Lib/verify";
 
 import { resultRouter } from "./result/result";
 router.use("/result", resultRouter);
@@ -39,7 +39,7 @@ interface PostRequestParams extends express.Request {
 export const statusRouter = router.get("/:key/:host", async (req: PostRequestParams, res: express.Response) => {
   const api_key = req.params.key;
   const host = req.params.host;
-  if (!(await verifyKey(api_key))) {
+  if (!(await verifyUser(api_key))) {
     res.status(401).json({
       status: 401,
       error: [

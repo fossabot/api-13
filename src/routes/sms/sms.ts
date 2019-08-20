@@ -1,11 +1,11 @@
 /*
  * File: sms.ts
  * Project: gruselhaus-api
- * File Created: Monday, 5th August 2019 8:33:13 pm
+ * File Created: Tuesday, 6th August 2019 8:02:58 am
  * Author: Nico Finkernagel <nico@gruselhaus.com>
  * -----
- * Last Modified: Monday, 5th August 2019 8:33:37 pm
- * Modified By: Nico Finkernagel <nico@gruselhaus.com>
+ * Last Modified: Tuesday, 20th August 2019 9:15:28 pm
+ * Modified By: Julia Konstanz <julia@gruselhaus.com>
  * -----
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
@@ -13,7 +13,7 @@
 import * as request from "request-promise";
 import * as bodyParser from "body-parser";
 
-import { verifyKey } from "../Lib/verify";
+import { verifyUser } from "../Lib/verify";
 import "../../env";
 
 import * as express from "express";
@@ -77,7 +77,7 @@ router.post("/create", async (req: express.Request, res: express.Response) => {
   const _phone = req.body.phone;
   const _message = req.body.message;
 
-  if (!(await verifyKey(req.body.key))) {
+  if (!(await verifyUser(req.body.key))) {
     res.status(401).send("Forbidden: Invalid API Key!");
   } else {
     if (!_phone || !_message) {
@@ -109,7 +109,7 @@ router.post("/create", async (req: express.Request, res: express.Response) => {
  */
 
 router.get("/quota", async (req: express.Request, res: express.Response) => {
-  if (!(await verifyKey(req.body.key))) {
+  if (!(await verifyUser(req.body.key))) {
     res.status(401).send("Forbidden: Invalid API Key!");
   } else {
     try {
@@ -154,7 +154,7 @@ interface PostRequestParams extends express.Request {
 }
 
 router.get("/status/:textId", async (req: PostRequestParams, res: express.Response) => {
-  if (!(await verifyKey(req.body.key))) {
+  if (!(await verifyUser(req.body.key))) {
     res.status(401).send("Forbidden: Invalid API Key!");
   } else {
     try {

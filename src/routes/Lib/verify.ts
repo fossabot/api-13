@@ -1,61 +1,22 @@
 /*
  * File: verify.ts
  * Project: gruselhaus-api
- * File Created: Saturday, 29th June 2019 11:59:15 am
+ * File Created: Tuesday, 6th August 2019 8:02:58 am
  * Author: Nico Finkernagel <nico@gruselhaus.com>
  * -----
- * Last Modified: Saturday, 29th June 2019 11:59:18 am
- * Modified By: Nico Finkernagel <nico@gruselhaus.com>
+ * Last Modified: Tuesday, 20th August 2019 9:15:03 pm
+ * Modified By: Julia Konstanz <julia@gruselhaus.com>
  * -----
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
 
-import { db } from "../../config/database";
+import "../../env";
+const { pool } = require("../db/database");
 
-export const verifyKey = (_key: string) => {
-  return new Promise((resolve, reject) => {
-    const ref = db.ref(`/keys/${_key}`);
-    ref.on(
-      "value",
-      snapshot => {
-        const resp = snapshot.val();
-        if (resp) {
-          if (resp.active === true) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-        } else {
-          resolve(false);
-        }
-      },
-      (error: string) => {
-        reject(new Error(`API Key Checking Failed! ${error}`));
-      }
-    );
-  });
-};
-
-export const verifyUser = (_username: string, _password: string) => {
-  return new Promise((resolve, reject) => {
-    const ref = db.ref(`/users/${_username}`);
-    ref.on(
-      "value",
-      snapshot => {
-        const resp = snapshot.val();
-        if (resp) {
-          if (resp.active === true && resp.password == _password) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-        } else {
-          resolve(false);
-        }
-      },
-      (error: string) => {
-        reject(new Error(`User Credentials Checking Failed! ${error}`));
-      }
-    );
-  });
+export const verifyUser = async (_key: string) => {
+  const res = await pool.query(`SELECT * FROM "Users" WHERE key = '${_key}'`);
+  for (const row of res.rows) {
+    if (row.active) return true;
+  }
+  return false;
 };

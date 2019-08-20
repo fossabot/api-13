@@ -4,8 +4,8 @@
  * File Created: Sunday, 18th August 2019 6:40:02 pm
  * Author: Nico Finkernagel <nico@gruselhaus.com>
  * -----
- * Last Modified: Sunday, 18th August 2019 6:40:04 pm
- * Modified By: Nico Finkernagel <nico@gruselhaus.com>
+ * Last Modified: Tuesday, 20th August 2019 9:15:36 pm
+ * Modified By: Julia Konstanz <julia@gruselhaus.com>
  * -----
  * Copyright 2019 Nico Finkernagel <nico@gruselhaus.com>, all rights reserved.
  */
@@ -20,7 +20,7 @@ import * as bodyParser from "body-parser";
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-import { verifyKey } from "../../Lib/verify";
+import { verifyUser } from "../../Lib/verify";
 
 /**
  * @api {post} /status/result Process result from status monitoring
@@ -31,7 +31,7 @@ import { verifyKey } from "../../Lib/verify";
 
 export const resultRouter = router.post("/", async (req: express.Request, res: express.Response) => {
   const api_key = req.query.key;
-  if (!(await verifyKey(api_key))) {
+  if (!(await verifyUser(api_key))) {
     res.status(401).json({
       status: 401,
       error: [
