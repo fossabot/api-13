@@ -71,6 +71,7 @@ Please run the the tests using the following command `$ yarn test` befor opening
 ## Authors
 
 * **Nico Finkernagel** - *Initial work* - [GitHub/@Gruselhaus](https://github.com/Gruselhaus)
+* **Julia Konstanz** - *Bug hunting & core contributing* - [GitHub/@juliakonstanz](https://github.com/juliakonstanz)
 
 See also the list of [contributors](https://github.com/GruselhausOrganization/api/contributors) who participated in this project.
 
