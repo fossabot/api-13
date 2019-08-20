@@ -19,11 +19,10 @@ import { verifyUser } from "../Lib/verify";
  * @api {get} /user/verify Verify user credentials in databse
  * @apiGroup User
  *
- * @apiParam {String} username Username.
- * @apiParam {String} password Password.
+ * @apiParam {String} key Gruselhaus API Key.
  *
  *
- * @apiSuccess {String} username Username of the User.
+ * @apiSuccess {String} key Gruselhaus API Key.
  * @apiSuccess {Boolean} auth Sucess.
  */
 
