@@ -19,7 +19,7 @@ You need to install this software to meet the prerequisites.
 
 * node.js
 * npm or yarn
-* An email provider && your SMTP Auth Credentials
+* An email provider & your SMTP Auth Credentials
 
 ### Installing
 
