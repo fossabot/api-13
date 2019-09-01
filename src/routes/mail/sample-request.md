@@ -1,7 +1,7 @@
 ```javascript
 //JFTR: request-promise requires request
 const rp = require('request-promise');
-rp.post('https://api.gruselhaus.com/mail', { //http://localhost:3000/mail
+rp.post('https://api.gruselhaus.com/mail/create', { //http://localhost:3000/mail/create
   form: {
     key: '1234',
     from: '1234',
