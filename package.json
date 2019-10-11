@@ -38,7 +38,7 @@
     "express-rate-limit": "^5.0.0",
     "is-reachable": "^4.0.0",
     "lodash": "^4.17.13",
-    "nodemailer": "^6.2.1",
+    "nodemailer": "^6.3.1",
     "pg": "^7.12.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
