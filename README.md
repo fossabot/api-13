@@ -1,4 +1,5 @@
-[![CircleCI](https://circleci.com/gh/GruselhausOrganization/api.svg?style=svg)](https://circleci.com/gh/GruselhausOrganization/api) 
+[![CircleCI](https://circleci.com/gh/GruselhausOrganization/api.svg?style=svg)](https://circleci.com/gh/GruselhausOrganization/api) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FGruselhausOrganization%2Fapi.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FGruselhausOrganization%2Fapi?ref=badge_shield)
+
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 # Gruselhaus API
@@ -79,3 +80,6 @@ See also the list of [contributors](https://github.com/GruselhausOrganization/ap
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FGruselhausOrganization%2Fapi.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FGruselhausOrganization%2Fapi?ref=badge_large)
